@@ -53,9 +53,11 @@ public class Mainmenu extends JPanel implements MouseListener{
     @Override
     protected void paintComponent(Graphics g){
         super.paintComponent(g); 
-        Image mainmenu= loadImage("Mainmenu.gif");
+        Image mainmenu= loadImage("Mainmenu.png");
+        
         Image soundbttn= loadImage("Sonido_1.gif");
         g.drawImage(mainmenu,  -180, 0, null);
+     
         if(bstatus){
             g.drawImage(soundbttn, 950, 770, 1130, 870, 0, 0, 1302, 740, null);
         }else{
@@ -68,7 +70,7 @@ public class Mainmenu extends JPanel implements MouseListener{
         Point pnt=e.getPoint();
         
         Rectangle start = new Rectangle(725, 510, 445, 105);
-        Rectangle highscores = new Rectangle(725, 645, 445, 105);
+        
         Rectangle soundswitch = new Rectangle(950, 770, 180, 100);
         
         if(soundswitch.contains(pnt)){
@@ -85,11 +87,7 @@ public class Mainmenu extends JPanel implements MouseListener{
             this.bto=1;
             counter+=1;
         }
-        else if(highscores.contains(pnt)){
-             shoot[counter].start();
-            this.bto=1;
-            counter+=1;
-        }
+       
         
     }
     

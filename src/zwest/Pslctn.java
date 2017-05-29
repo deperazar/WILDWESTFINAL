@@ -24,8 +24,7 @@ import javax.swing.JPanel;
 public class Pslctn extends JPanel implements MouseListener{
     private int bto;//numero de panel
     private int selected;//hightlight
-    private int counter;
-    private Boolean displaystart;//mostrar boton start
+    private int counter;//counter de disparos
     private Clip []shoot;
     
     public Pslctn(){
@@ -33,7 +32,6 @@ public class Pslctn extends JPanel implements MouseListener{
         this.bto=1;
         this.selected=0;
         this.counter=0;
-        this.displaystart=false;
         this.shoot=new Clip[11];
         try {
              for (int i = 0; i < 10; i++) {
@@ -55,9 +53,7 @@ public class Pslctn extends JPanel implements MouseListener{
         Image highlight=loadImage("highlights.gif");
         
         g.drawImage(selectionpanel, 0, 0, 2000, 1000, this);
-        g.drawRect(130, 345, 290, 410);
-        g.drawRect(420, 345, 290, 410);
-        g.drawRect(710, 345, 290, 410);
+     
         g.drawImage(buttons, 50, 800, 350, 900, 0, 731, 1229, 1092, this);
         
         switch(selected){
@@ -74,11 +70,14 @@ public class Pslctn extends JPanel implements MouseListener{
             default:
             break;
         } 
-        if(displaystart){
+        if(selected==0){
+            
+        }else{
             g.drawImage(buttons, 1500, 800, 1800, 900, 8, 1110, 1229, 1463, this);
         }
        
     }
+    
     public int getbto(){
 
         return this.bto;
@@ -89,7 +88,9 @@ public class Pslctn extends JPanel implements MouseListener{
     public int getselc(){
         return this.selected;
     }
-    
+    public void setselect(){
+        this.selected=0;
+    }
 
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -105,15 +106,13 @@ public class Pslctn extends JPanel implements MouseListener{
         }
         if(p1.contains(p)){
             this.selected=1;
-            this.displaystart=true;
+            
         }
         if(p2.contains(p)){
-            this.selected=2;
-            this.displaystart=true;
+            this.selected=2;       
         }
         if(p3.contains(p)){
-            this.selected=3;
-            this.displaystart=true;
+            this.selected=3;   
         }
         if(play.contains(p)){
             this.shoot[counter].start();

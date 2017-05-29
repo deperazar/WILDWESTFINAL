@@ -11,7 +11,7 @@ import java.awt.Graphics;
  *
  * @author PERSONAL
  */
-public class Character {
+public class Character  {
     protected int life;
     protected int ID;
     protected int bullets;
@@ -20,42 +20,41 @@ public class Character {
         
         switch (ID) {
             case 1:
-               // System.out.println("forajido");
+               // forajido
                 break;
             case 2:
-                //System.out.println("mujer");
+                //mujer
                 break;
             case 3:
-                //System.out.println("indio");
+                //indio
                 break;
             default:
                 break;
         }
+
         this.ID=ID;
         this.bullets=6;
         
     }
     
-    public void shoot(){
-        bullets-=1;
-    }
+    
     public int getid(){
         return this.ID;
     }
-    public int getlife(){
+    protected int getlife(){
         return this.life;
     }
-    public void hurt(int damage){
+    protected void hurt(int damage){
         this.life-=damage;
     }
-    public int getbullets(){
+    protected int getbullets(){
         return this.bullets;
     }
-    public void setid(int ID){
+    protected void setid(int ID){
         this.ID=ID;
     }
-     public void setlife(int life){
-        this.life=life;
+    protected void setdamage(int damage){
+        this.life=life-damage;
     }
 
     
